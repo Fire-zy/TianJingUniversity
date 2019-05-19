@@ -8,18 +8,18 @@
     }
  
     //获取各元素，方便操作
-    var box=my$("box");
-    var inner=box.children[0];
-    var ulObj=inner.children[0];
-    var list=ulObj.children;
-    var olObj=inner.children[1];
-    var arr=my$("arr");
-    var imgWidth=inner.offsetWidth;
-    var right=my$("right");
-    var pic=0;
+    let box=my$("box");
+    let inner=box.children[0];
+    let ulObj=inner.children[0];
+    let list=ulObj.children;
+    let olObj=inner.children[1];
+    let arr=my$("arr");
+    let imgWidth=inner.offsetWidth;
+    let right=my$("right");
+    let pic=0;
     //根据li个数，创建小按钮
-    for(var i=0;i<list.length;i++){
-        var liObj=document.createElement("li");
+    for(let i=0;i<list.length;i++){
+        let liObj=document.createElement("li");
  
         olObj.appendChild(liObj);
 //      liObj.innerText=(i+1);
@@ -29,7 +29,7 @@
         liObj.onmouseover=function () {
             //先清除所有按钮的样式
  
-            for (var j=0;j<olObj.children.length;j++){
+            for (let j=0;j<olObj.children.length;j++){
                 olObj.children[j].removeAttribute("class");
             }
             this.className="current";
@@ -45,7 +45,7 @@
     //克隆一个ul中第一个li,加入到ul中的最后=====克隆
     ulObj.appendChild(ulObj.children[0].cloneNode(true));
  
-    var timeId=setInterval(onmouseclickHandle,200000);
+    let timeId=setInterval(onmouseclickHandle,200000);
     //左右焦点实现点击切换图片功能
     box.onmouseover=function () {
         arr.style.display="block";
@@ -75,7 +75,7 @@
             olObj.children[0].className = "current";
         } else {
             //干掉所有的小按钮的背景颜色
-            for (var i = 0; i < olObj.children.length; i++) {
+            for (let i = 0; i < olObj.children.length; i++) {
                 olObj.children[i].removeAttribute("class");
             }
             olObj.children[pic].className = "current";
@@ -88,7 +88,7 @@
         }
         pic--;
         animate(ulObj,-pic*imgWidth);
-        for (var i = 0; i < olObj.children.length; i++) {
+        for (let i = 0; i < olObj.children.length; i++) {
             olObj.children[i].removeAttribute("class");
         }
         //当前的pic索引对应的按钮设置颜色
@@ -101,9 +101,9 @@
         //定时器的id值存储到对象的一个属性中
         element.timeId = setInterval(function () {
             //获取元素的当前的位置,数字类型
-            var current = element.offsetLeft;
+            let current = element.offsetLeft;
             //每次移动的距离
-            var step = 20;
+            let step = 20;
             step = current < target ? step : -step;
             //当前移动到位置
             current += step;
